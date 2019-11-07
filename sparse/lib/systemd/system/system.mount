@@ -7,7 +7,14 @@ What=/dev/sde48
 Where=/system
 Type=ext4
 Options=ro,barrier=1
+# Options had SELinux context option:  
+
+# Default is 90 which makes mount period too long in case of
+# errors so drop it down a notch.
 TimeoutSec=10
 
 [Install]
 WantedBy=local-fs.target
+
+# From ./out/target/product/beryllium/vendor/etc/fstab.qcom :
+# /dev/sde48         /system                 ext4    ro,barrier=1                                                                                      wait,recoveryonly

@@ -15,10 +15,17 @@
 # For 4-5.5" device screen sizes of 16:9 ratio, use this formula (hold portrait):
 # pixel_ratio = 4.5/DiagonalDisplaySizeInches * HorizontalDisplayResolution/540
 # Other screen sizes and ratios will require more trial-and-error.
-%define pixel_ratio 1.0
+%define pixel_ratio 1.9
 
+# Device-specific usb-moded configuration
 Provides: usb-moded-configs
 Obsoletes: usb-moded-defaults
+# Device-specific ofono configuration
+Provides: ofono-configs
+Obsoletes: ofono-configs-mer
+
+%define ofono_enable_plugins bluez5,hfp_ag_bluez5 
+%define ofono_disable_plugins bluez4,dun_gw_bluez4,hfp_ag_bluez4,hfp_bluez4,dun_gw_bluez5,hfp_bluez5
 
 %include droid-configs-device/droid-configs.inc
 
