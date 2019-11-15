@@ -1,0 +1,1 @@
+/system/etc/vndksp.libraries.28.txt
